@@ -1,169 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BULKBUY – Electronics Overstock Buyers</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #ffffff;
-      color: #111;
-    }
-
-    header {
-      background-color: #000;
-      color: #fff;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.4rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      color: #f0f0f0;
-    }
-
-    .section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .section h2 {
-      color: #ff6600;
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-    }
-
-    .section p {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BULKBUY – Strategic Electronics Overstock Partner</title>
+<meta name="description" content="BULKBUY buys overstock and outdated electronics from distributors, retailers & brands. Get fair offers for your aging inventory." />
+<meta property="og:title" content="BULKBUY – Electronics Overstock Buyers" />
+<meta property="og:description" content="Fair, professional, and discreet bulk buying of outdated electronic inventory." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://yourdomain.com/" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=BULKBUY+Logo" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #fafafa;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+  header {
+    background: #121212;
+    color: #fff;
+    padding: 60px 20px 40px;
+    text-align: center;
+    position: relative;
+  }
+  .logo {
+    width: 160px;
+    margin: 0 auto 20px auto;
+    filter: drop-shadow(0 0 3px #ff7f00);
+  }
+  header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #ff7f00;
+    letter-spacing: 2px;
+  }
+  header p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 15px auto 0 auto;
+    color: #ddd;
+  }
+  .btn {
+    display: inline-block;
+    background: #ff7f00;
+    color: #121212;
+    padding: 16px 36px;
+    font-weight: 700;
+    border-radius: 6px;
+    margin-top: 30px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 127, 0, 0.6);
+  }
+  .btn:hover, .btn:focus {
+    background: #e06a00;
+    box-shadow: 0 6px 20px rgba(224, 106, 0, 0.8);
+  }
+  main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px 60px;
+  }
+  section {
+    margin-bottom: 60px;
+  }
+  h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    color: #121212;
+    margin-bottom: 25px;
+  }
+  p {
+    font-size: 1.05rem;
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    color: #333;
+  }
+  ul {
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    padding-left: 20px;
+    color: #333;
+    font-size: 1rem;
+    list-style: disc;
+  }
+  ul li {
+    margin-bottom: 10px;
+  }
+  .features {
+    display: grid;
+    gap: 28px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  @media(min-width: 700px) {
     .features {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
     }
-
-    @media (min-width: 768px) {
-      .features {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .feature {
-      background: #f9f9f9;
-      padding: 20px;
-      border-left: 5px solid #ff6600;
-    }
-
+  }
+  .feature {
+    background: #fff;
+    border-left: 6px solid #ff7f00;
+    padding: 22px 25px;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(255,127,0,0.15);
+  }
+  .feature h3 {
+    font-size: 1.3rem;
+    color: #ff7f00;
+    margin-bottom: 12px;
+  }
+  .gallery {
+    display: grid;
+    gap: 18px;
+    max-width: 900px;
+    margin: 30px auto 0 auto;
+  }
+  @media(min-width: 900px) {
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
+      grid-template-columns: repeat(3, 1fr);
     }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 5px;
+  }
+  .gallery img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+  #contact {
+    background: #121212;
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto 80px;
+    box-shadow: 0 5px 25px rgba(255,127,0,0.3);
+  }
+  #contact h2 {
+    color: #ff7f00;
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+  #contact p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #eee;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  input, textarea {
+    padding: 14px 18px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 2px solid #ddd;
+    transition: border-color 0.3s ease;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #ff7f00;
+    box-shadow: 0 0 10px rgba(255,127,0,0.4);
+  }
+  button {
+    background: #ff7f00;
+    border: none;
+    padding: 16px 0;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    color: #121212;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255,127,0,0.7);
+    transition: background 0.3s ease;
+  }
+  button:hover, button:focus {
+    background: #e06a00;
+    box-shadow: 0 6px 20px rgba(224,106,0,0.9);
+  }
+  footer {
+    background: #121212;
+    color: #fff;
+    padding: 25px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+  @media (max-width:600px){
+    header h1 {
+      font-size: 2rem;
     }
-
-    footer {
-      background: #000;
-      color: #fff;
-      text-align: center;
-      padding: 30px 20px;
+    header p {
+      font-size: 1rem;
     }
-
-    .btn {
-      display: inline-block;
-      background-color: #ff6600;
-      color: #fff;
-      padding: 12px 24px;
-      margin-top: 20px;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
+    h2 {
+      font-size: 1.7rem;
     }
-
-    .btn:hover {
-      background-color: #e55b00;
+    .feature h3 {
+      font-size: 1.1rem;
     }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>BULKBUY</h1>
-    <p>We Buy Overstock & Outdated Electronics – Fast, Fair & Easy</p>
-  </header>
+<header>
+  <img src="https://i.imgur.com/wb7RynX.png" alt="BULKBUY Logo" class="logo" />
+  <h1>BULKBUY</h1>
+  <p>Strategic Electronics Overstock Partner – Unlock the True Value of Your Aging Inventory</p>
+  <a href="#contact" class="btn" tabindex="0">Request a Quote</a>
+</header>
 
-  <section class="section">
+<main>
+  <section>
     <h2>Who We Are</h2>
-    <p>
-      BULKBUY is a New York-based company that specializes in purchasing overstock and outdated electronic products directly from distributors, brands, and retailers. If you're stuck with last year's models, aging inventory, or boxed electronics that just won’t move – we’re here to help.
-    </p>
-    <a href="#contact" class="btn">Get In Touch</a>
+    <p>BULKBUY is a leading New York-based company specializing in bulk purchase of overstock and outdated electronic inventory. We partner with distributors, retailers, and brands to help unlock cash flow from obsolete stock with transparent, fair offers.</p>
   </section>
 
-  <section class="section">
-    <h2>What We Offer</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>Fair Purchase Offers</h3>
-        <p>We provide competitive quotes for outdated or unsold inventory. No unrealistic promises – just real value for what you’ve got.</p>
-      </div>
-      <div class="feature">
-        <h3>Electronics Focused</h3>
-        <p>We specialize in electronics – TVs, tablets, headphones, gadgets and more. We know your products, and we know how to move them.</p>
-      </div>
-      <div class="feature">
-        <h3>Discreet & Professional</h3>
-        <p>We respect your brand and your situation. All deals are handled with complete discretion.</p>
-      </div>
-      <div class="feature">
-        <h3>Fast Process, No Hassles</h3>
-        <p>We won’t waste your time. Quick conversations, clear terms, and efficient pickups when you're ready.</p>
-      </div>
+  <section>
+    <h2>Our Expertise</h2>
+    <div class="features" role="list">
+      <article class="feature" role="listitem">
+        <h3>Data-Driven Valuations</h3>
+        <p>Our team analyzes market trends and product lifecycle data to provide realistic and competitive purchase proposals tailored to your inventory.</p>
+      </article>
+      <article class="feature" role="listitem">
+        <h3>Comprehensive Electronics Coverage</h3>
+        <p>We acquire all categories: TVs, audio equipment, mobile devices, accessories, and discontinued or showroom stock.</p>
+      </article>
+      <article class="feature" role="listitem">
+        <h3>Discretion & Professionalism</h3>
+        <p>We operate with full confidentiality and integrity to ensure your brand's reputation remains untarnished.</p>
+      </article>
+      <article class="feature" role="listitem">
+        <h3>Efficient Process</h3>
+        <p>Fast evaluation cycles and streamlined logistics designed to minimize disruption and maximize your return.</p>
+      </article>
     </div>
   </section>
 
-  <section class="section">
-    <h2>Electronics We Buy</h2>
+  <section>
+    <h2>Products We Buy</h2>
     <ul>
-      <li>Older TV models (Smart/LED/LCD)</li>
-      <li>Headphones and audio gear</li>
-      <li>Tablets, small gadgets, accessories</li>
-      <li>Display models, sealed units, discontinued stock</li>
+      <li>Older model TVs – LED, LCD, Smart</li>
+      <li>Audio systems and headphones</li>
+      <li>Tablets, wearables, and accessories</li>
+      <li>Discontinued and showroom inventory</li>
+      <li>Bulk packaged overstock units</li>
     </ul>
 
-    <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1580894908361-96719503395d" alt="Old TVs"/>
-      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" alt="Gadgets"/>
-      <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7" alt="Tech Inventory"/>
+    <div class="gallery" role="list" aria-label="Gallery of electronics overstock items">
+      <img src="https://images.unsplash.com/photo-1580894908361-96719503395d?auto=format&fit=crop&w=600&q=80" alt="Various outdated TV models" role="listitem" />
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80" alt="Assortment of electronic gadgets" role="listitem" />
+      <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=600&q=80" alt="Stacks of electronics inventory" role="listitem" />
     </div>
   </section>
 
-  <section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <p>Ready to offload your aging electronics inventory? Let's talk.</p>
-    <p><strong>📍 New York, NY</strong><br>
-       📞 +1 (212) 555-0199<br>
-       ✉️ contact@bulkbuy.com</p>
-    <a class="btn" href="mailto:contact@bulkbuy.com">Email Us</a>
-  </section>
+  <section id="contact">
+    <h2>Contact Our Team</h2>
+    <p>If you have overstock or outdated electronics you want to sell, get a personalized offer from BULKBUY today.</p>
 
-  <footer>
-    <p>&copy; 2025 BULKBUY. All rights reserved.</p>
-  </footer>
+    <form id="contactForm" novalidate>
+      <input type="text" id="name" name="name" placeholder="Your full name" required aria-required="true" />
+      <input type="email" id="email" name="email" placeholder="Your email address" required aria-required="true" />
+      <textarea id="message" name="message" rows="4" placeholder="Tell us about your inventory" required aria-required="true"></textarea>
+      <button type="submit">Send Request</button>
+      <p id="formMessage" role="alert" style="margin-top:10px; color:#ff7f00;"></p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 BULKBUY. All rights reserved.
+</footer>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const formMessage = document.getElementById('formMessage');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    formMessage.textContent = '';
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !email || !message) {
+      formMessage.textContent = 'Please fill in all required fields.';
+      return;
+    }
+
+    // Basic email format validation
+    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+    if (!emailRegex.test(email)) {
+      formMessage.textContent = 'Please enter a valid email address.';
+      return;
+    }
+
+    // Simulate form submission success (replace with real backend integration)
+    formMessage.style.color = '#28a745';
+    formMessage.textContent = 'Thank you! Your request has been received. We will contact you shortly.';
+    form.reset();
+  });
+</script>
 
 </body>
 </html>
