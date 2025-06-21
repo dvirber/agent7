@@ -1,51 +1,183 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your AI Companion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BULKBUY – Outdated Electronics? We Pay Cash.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom, #001f3f, #000000);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #f1f1f1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #111;
     }
-    h1 {
+    header {
+      background-color: #000;
+      color: #ffa500;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h1 {
       font-size: 2.5rem;
-      color: #00d4ff;
-      margin-bottom: 1rem;
+      margin-bottom: 10px;
     }
-    .chat-window {
-      background-color: #0b0b2e;
-      border: 1px solid #00d4ff44;
+    header p {
+      color: #fff;
+      font-size: 1.1rem;
+    }
+    .cta {
+      margin-top: 20px;
+    }
+    .cta a {
+      background-color: #ffa500;
+      color: #000;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      color: #000;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .features, .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .feature, .gallery img {
+      background: #f9f9f9;
+      padding: 20px;
       border-radius: 12px;
-      padding: 24px;
-      width: 80%;
-      max-width: 600px;
-      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    .chat-bubble {
-      margin-bottom: 12px;
+    .feature h3 {
+      color: #ffa500;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
     }
-    .chat-bubble strong {
-      color: #00d4ff;
+    .feature p {
+      font-size: 0.95rem;
+    }
+    .gallery img {
+      height: 180px;
+      object-fit: cover;
+      width: 100%;
+    }
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    .contact {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .contact h2 {
+      color: #ffa500;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+    .contact p {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    footer {
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p, .contact p, .feature p {
+        font-size: 0.95rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Your AI Companion</h1>
-  <div class="chat-window">
-    <div class="chat-bubble"><strong>AI:</strong> Welcome! I'm here to assist you with anything.</div>
-    <div class="chat-bubble"><strong>User:</strong> What can you do?</div>
-    <div class="chat-bubble"><strong>AI:</strong> I can answer questions, provide tips, and help you explore ideas.</div>
-  </div>
+  <header>
+    <h1>BULKBUY NYC</h1>
+    <p>We Buy Outdated Electronics – Fast & for Cash</p>
+    <div class="cta">
+      <a href="#contact">GET A CASH OFFER</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>The Problem</h2>
+    <p>Outdated TVs, discontinued electronics, old stock sitting in your warehouse – it's costing you money and space.</p>
+    <p><strong>We’re the solution.</strong> At BULKBUY, we turn old inventory into fast cash – no delays, no hassle.</p>
+  </section>
+
+  <section>
+    <h2>Why Choose BULKBUY?</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Cash in 24 Hours</h3>
+        <p>Quick, no-fuss payments. You send the details – we send the money.</p>
+      </div>
+      <div class="feature">
+        <h3>We Take Everything</h3>
+        <p>From televisions to smart accessories. If it’s not moving – we’ll take it.</p>
+      </div>
+      <div class="feature">
+        <h3>Discreet and Fast</h3>
+        <p>No questions, no judgment. Total discretion in every deal.</p>
+      </div>
+      <div class="feature">
+        <h3>Based in NYC</h3>
+        <p>New York roots – global reach. We move quickly, wherever you are.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What We Buy</h2>
+    <ul>
+      <li>LED/LCD TVs (All brands)</li>
+      <li>Speakers & Audio Systems</li>
+      <li>Smart Home Accessories</li>
+      <li>Old-Model Smartphones & Tablets</li>
+      <li>Stuck inventory that just won’t sell</li>
+    </ul>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1581291519195-ef11498d1cf5" alt="TV Models">
+      <img src="https://images.unsplash.com/photo-1618005198919-d3d4f5e8f6dc" alt="Electronics Warehouse">
+      <img src="https://images.unsplash.com/photo-1580910051073-e99d9a64b556" alt="Old Electronics">
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Let’s Clear That Stock</h2>
+    <p><strong>Phone:</strong> +1 (212) 555-XXXX</p>
+    <p><strong>Email:</strong> deals@bulkbuy.com</p>
+    <p><strong>Location:</strong> New York City, USA</p>
+  </section>
+
+  <footer>
+    &copy; 2025 BULKBUY NYC. All rights reserved.
+  </footer>
 </body>
 </html>
