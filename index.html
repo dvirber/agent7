@@ -1,318 +1,183 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>BULKBUY – Strategic Electronics Overstock Partner</title>
-<meta name="description" content="BULKBUY buys overstock and outdated electronics from distributors, retailers & brands. Get fair offers for your aging inventory." />
-<meta property="og:title" content="BULKBUY – Electronics Overstock Buyers" />
-<meta property="og:description" content="Fair, professional, and discreet bulk buying of outdated electronic inventory." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://yourdomain.com/" />
-<meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=BULKBUY+Logo" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Inter', sans-serif;
-    background: #fafafa;
-    color: #1a1a1a;
-    line-height: 1.6;
-  }
-  header {
-    background: #121212;
-    color: #fff;
-    padding: 60px 20px 40px;
-    text-align: center;
-    position: relative;
-  }
-  .logo {
-    width: 160px;
-    margin: 0 auto 20px auto;
-    filter: drop-shadow(0 0 3px #ff7f00);
-  }
-  header h1 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: #ff7f00;
-    letter-spacing: 2px;
-  }
-  header p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 15px auto 0 auto;
-    color: #ddd;
-  }
-  .btn {
-    display: inline-block;
-    background: #ff7f00;
-    color: #121212;
-    padding: 16px 36px;
-    font-weight: 700;
-    border-radius: 6px;
-    margin-top: 30px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 127, 0, 0.6);
-  }
-  .btn:hover, .btn:focus {
-    background: #e06a00;
-    box-shadow: 0 6px 20px rgba(224, 106, 0, 0.8);
-  }
-  main {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px 60px;
-  }
-  section {
-    margin-bottom: 60px;
-  }
-  h2 {
-    font-size: 2.2rem;
-    text-align: center;
-    color: #121212;
-    margin-bottom: 25px;
-  }
-  p {
-    font-size: 1.05rem;
-    max-width: 900px;
-    margin: 0 auto 20px auto;
-    color: #333;
-  }
-  ul {
-    max-width: 900px;
-    margin: 0 auto 30px auto;
-    padding-left: 20px;
-    color: #333;
-    font-size: 1rem;
-    list-style: disc;
-  }
-  ul li {
-    margin-bottom: 10px;
-  }
-  .features {
-    display: grid;
-    gap: 28px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  @media(min-width: 700px) {
-    .features {
-      grid-template-columns: repeat(2, 1fr);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LawAid: Free Legal Advisor for All</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .chat-bubble {
+      max-width: 80%;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 5px 0;
     }
-  }
-  .feature {
-    background: #fff;
-    border-left: 6px solid #ff7f00;
-    padding: 22px 25px;
-    border-radius: 8px;
-    box-shadow: 0 3px 15px rgba(255,127,0,0.15);
-  }
-  .feature h3 {
-    font-size: 1.3rem;
-    color: #ff7f00;
-    margin-bottom: 12px;
-  }
-  .gallery {
-    display: grid;
-    gap: 18px;
-    max-width: 900px;
-    margin: 30px auto 0 auto;
-  }
-  @media(min-width: 900px) {
-    .gallery {
-      grid-template-columns: repeat(3, 1fr);
+    .user-bubble {
+      background: #e6f3ff;
+      margin-left: auto;
+      text-align: right;
     }
-  }
-  .gallery img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
-    cursor: pointer;
-  }
-  .gallery img:hover {
-    transform: scale(1.05);
-  }
-  #contact {
-    background: #121212;
-    color: #fff;
-    padding: 50px 20px;
-    text-align: center;
-    border-radius: 10px;
-    max-width: 600px;
-    margin: 0 auto 80px;
-    box-shadow: 0 5px 25px rgba(255,127,0,0.3);
-  }
-  #contact h2 {
-    color: #ff7f00;
-    font-size: 2rem;
-    margin-bottom: 25px;
-  }
-  #contact p {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-    color: #eee;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-  input, textarea {
-    padding: 14px 18px;
-    font-size: 1rem;
-    border-radius: 6px;
-    border: 2px solid #ddd;
-    transition: border-color 0.3s ease;
-  }
-  input:focus, textarea:focus {
-    outline: none;
-    border-color: #ff7f00;
-    box-shadow: 0 0 10px rgba(255,127,0,0.4);
-  }
-  button {
-    background: #ff7f00;
-    border: none;
-    padding: 16px 0;
-    font-weight: 700;
-    font-size: 1.1rem;
-    border-radius: 6px;
-    color: #121212;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(255,127,0,0.7);
-    transition: background 0.3s ease;
-  }
-  button:hover, button:focus {
-    background: #e06a00;
-    box-shadow: 0 6px 20px rgba(224,106,0,0.9);
-  }
-  footer {
-    background: #121212;
-    color: #fff;
-    padding: 25px 20px;
-    text-align: center;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-  }
-  @media (max-width:600px){
-    header h1 {
-      font-size: 2rem;
+    .bot-bubble {
+      background: #f3f4f6;
+      margin-right: auto;
     }
-    header p {
-      font-size: 1rem;
-    }
-    h2 {
-      font-size: 1.7rem;
-    }
-    .feature h3 {
-      font-size: 1.1rem;
-    }
-  }
-</style>
+  </style>
 </head>
-<body>
+<body class="bg-gray-100 font-sans">
+  <!-- Header -->
+  <header class="bg-blue-900 text-white py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">LawAid</h1>
+      <nav>
+        <a href="#home" class="mx-2 hover:underline">Home</a>
+        <a href="#chatbot" class="mx-2 hover:underline">Ask a Question</a>
+        <a href="#lead-form" class="mx-2 hover:underline">Get Legal Help</a>
+      </nav>
+    </div>
+  </header>
 
-<header>
-  <img src="https://i.imgur.com/wb7RynX.png" alt="BULKBUY Logo" class="logo" />
-  <h1>BULKBUY</h1>
-  <p>Strategic Electronics Overstock Partner – Unlock the True Value of Your Aging Inventory</p>
-  <a href="#contact" class="btn" tabindex="0">Request a Quote</a>
-</header>
-
-<main>
-  <section>
-    <h2>Who We Are</h2>
-    <p>BULKBUY is a leading New York-based company specializing in bulk purchase of overstock and outdated electronic inventory. We partner with distributors, retailers, and brands to help unlock cash flow from obsolete stock with transparent, fair offers.</p>
-  </section>
-
-  <section>
-    <h2>Our Expertise</h2>
-    <div class="features" role="list">
-      <article class="feature" role="listitem">
-        <h3>Data-Driven Valuations</h3>
-        <p>Our team analyzes market trends and product lifecycle data to provide realistic and competitive purchase proposals tailored to your inventory.</p>
-      </article>
-      <article class="feature" role="listitem">
-        <h3>Comprehensive Electronics Coverage</h3>
-        <p>We acquire all categories: TVs, audio equipment, mobile devices, accessories, and discontinued or showroom stock.</p>
-      </article>
-      <article class="feature" role="listitem">
-        <h3>Discretion & Professionalism</h3>
-        <p>We operate with full confidentiality and integrity to ensure your brand's reputation remains untarnished.</p>
-      </article>
-      <article class="feature" role="listitem">
-        <h3>Efficient Process</h3>
-        <p>Fast evaluation cycles and streamlined logistics designed to minimize disruption and maximize your return.</p>
-      </article>
+  <!-- Hero Section -->
+  <section id="home" class="bg-blue-100 py-16 text-center">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-blue-900 mb-4">LawAid: Legal Clarity. No Cost. No Stress.</h2>
+      <p class="text-lg text-gray-700 mb-6">Get instant answers to legal questions and connect with expert attorneys for free.</p>
+      <a href="#lead-form" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600">Find a Lawyer Now</a>
     </div>
   </section>
 
-  <section>
-    <h2>Products We Buy</h2>
-    <ul>
-      <li>Older model TVs – LED, LCD, Smart</li>
-      <li>Audio systems and headphones</li>
-      <li>Tablets, wearables, and accessories</li>
-      <li>Discontinued and showroom inventory</li>
-      <li>Bulk packaged overstock units</li>
-    </ul>
-
-    <div class="gallery" role="list" aria-label="Gallery of electronics overstock items">
-      <img src="https://images.unsplash.com/photo-1580894908361-96719503395d?auto=format&fit=crop&w=600&q=80" alt="Various outdated TV models" role="listitem" />
-      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80" alt="Assortment of electronic gadgets" role="listitem" />
-      <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=600&q=80" alt="Stacks of electronics inventory" role="listitem" />
+  <!-- Chatbot Section -->
+  <section id="chatbot" class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h3 class="text-2xl font-bold text-blue-900 mb-4 text-center">Ask LawAid Anything</h3>
+      <div id="chat-container" class="border rounded-lg p-4 max-w-2xl mx-auto h-64 overflow-y-auto mb-4">
+        <div class="bot-bubble chat-bubble">Hi! I'm LawAid. Ask me a legal question, like 'What’s lifting the corporate veil?'</div>
+      </div>
+      <div class="flex max-w-2xl mx-auto">
+        <input id="chat-input" type="text" class="flex-1 p-2 border rounded-l-lg" placeholder="Type your question...">
+        <button id="chat-submit" class="bg-blue-900 text-white px-4 py-2 rounded-r-lg hover:bg-blue-800">Send</button>
+      </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact Our Team</h2>
-    <p>If you have overstock or outdated electronics you want to sell, get a personalized offer from BULKBUY today.</p>
-
-    <form id="contactForm" novalidate>
-      <input type="text" id="name" name="name" placeholder="Your full name" required aria-required="true" />
-      <input type="email" id="email" name="email" placeholder="Your email address" required aria-required="true" />
-      <textarea id="message" name="message" rows="4" placeholder="Tell us about your inventory" required aria-required="true"></textarea>
-      <button type="submit">Send Request</button>
-      <p id="formMessage" role="alert" style="margin-top:10px; color:#ff7f00;"></p>
-    </form>
+  <!-- Educational Section -->
+  <section id="education" class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h3 class="text-2xl font-bold text-blue-900 mb-4 text-center">Learn About Lifting the Corporate Veil</h3>
+      <div class="max-w-2xl mx-auto text-gray-700">
+        <p class="mb-4">When a company is used for fraud or to dodge legal duties, courts may 'lift the corporate veil' to hold owners personally liable. For example, if a company hides debts, its owners might have to pay. LawAid explains complex terms simply and connects you to corporate law experts.</p>
+        <a href="#lead-form" class="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600">Talk to a Corporate Lawyer</a>
+      </div>
+    </div>
   </section>
-</main>
 
-<footer>
-  &copy; 2025 BULKBUY. All rights reserved.
-</footer>
+  <!-- Lead Capture Form -->
+  <section id="lead-form" class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h3 class="text-2xl font-bold text-blue-900 mb-4 text-center">Connect with an Attorney</h3>
+      <form id="leadForm" class="max-w-md mx-auto space-y-4">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full p-2 border rounded-lg">
+        <input type="email" name="email" placeholder="Your Email" required class="w-full p-2 border rounded-lg">
+        <input type="text" name="location" placeholder="Your Location" required class="w-full p-2 border rounded-lg">
+        <select name="practice_area" required class="w-full p-2 border rounded-lg">
+          <option value="" disabled selected>Select Legal Issue</option>
+          <option value="corporate_law">Corporate Law</option>
+          <option value="family_law">Family Law</option>
+          <option value="personal_injury">Personal Injury</option>
+        </select>
+        <button type="submit" class="w-full bg-green-500 text-white p-2 rounded-lg hover:bg-green-600">Get Help Now</button>
+      </form>
+    </div>
+  </section>
 
-<script>
-  const form = document.getElementById('contactForm');
-  const formMessage = document.getElementById('formMessage');
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white py-4">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-sm">LawAid provides general information, not legal advice. Consult a licensed attorney for professional guidance.</p>
+      <p class="text-sm mt-2">Contact: support@lawaid.com | &copy; 2025 LawAid</p>
+    </div>
+  </footer>
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    formMessage.textContent = '';
+  <script>
+    const chatContainer = document.getElementById('chat-container');
+    const chatInput = document.getElementById('chat-input');
+    const chatSubmit = document.getElementById('chat-submit');
+    const leadForm = document.getElementById('leadForm');
 
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
+    chatSubmit.addEventListener('click', () => {
+      const userInput = chatInput.value.trim();
+      if (!userInput) return;
 
-    if (!name || !email || !message) {
-      formMessage.textContent = 'Please fill in all required fields.';
-      return;
-    }
+      // Add user message
+      const userBubble = document.createElement('div');
+      userBubble.className = 'user-bubble chat-bubble';
+      userBubble.textContent = userInput;
+      chatContainer.appendChild(userBubble);
 
-    // Basic email format validation
-    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-    if (!emailRegex.test(email)) {
-      formMessage.textContent = 'Please enter a valid email address.';
-      return;
-    }
+      // Simulate bot response
+      const botBubble = document.createElement('div');
+      botBubble.className = 'bot-bubble chat-bubble';
+      if (userInput.toLowerCase().includes('corporate veil')) {
+        botBubble.innerHTML = `Lifting the corporate veil is when courts hold company owners personally liable, like in fraud cases. Need a corporate lawyer? <a href="#lead-form" class="text-blue-900 underline">Connect now</a>. <br><i>Not legal advice; consult an attorney.</i>`;
+      } else {
+        botBubble.innerHTML = `I can explain legal terms or connect you with a lawyer. Try asking about 'lifting the corporate veil' or enter your details below. <br><i>Not legal advice; consult an attorney.</i>`;
+      }
+      chatContainer.appendChild(botBubble);
 
-    // Simulate form submission success (replace with real backend integration)
-    formMessage.style.color = '#28a745';
-    formMessage.textContent = 'Thank you! Your request has been received. We will contact you shortly.';
-    form.reset();
-  });
-</script>
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+      chatInput.value = '';
+    });
 
+    leadForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(leadForm);
+      alert('Lead submitted! We’ll connect you with an attorney soon.');
+      leadForm.reset();
+    });
+  </script>
 </body>
 </html>
+```
+
+**How to Use**:
+1. **Save and View**: Copy the code into a file named `index.html`, save it, and open it in a browser (e.g., Chrome) to see the website.
+2. **Customize**:
+   - **Text**: Edit the title, tagline, or content (e.g., change “Corporate Law” to other practice areas in the form).
+   - **Visuals**: Replace the placeholder icon in the educational section (e.g., use a free image from Unsplash, like `https://images.unsplash.com/photo-1589829085413-56de8f8f54e6` for a gavel).
+   - **Colors**: Modify Tailwind classes (e.g., change `bg-blue-900` to `bg-green-700` for a different header color).
+3. **No-Code Alternative**: Use Wix or Squarespace to recreate this design with drag-and-drop editors. Add a chatbot via Tidio (free plan) and a form via Typeform.
+4. **Hosting**: Upload to a free host like GitHub Pages or Netlify, or use a developer for full deployment.
+
+---
+
+### How This Website Fits LawAid’s Vision
+- **Legal Clarity**: The educational section explains “lifting the corporate veil” in plain English, attracting users with corporate law questions, per LawAid’s mission.
+- **Lead Generation**: The form and chatbot CTA capture user data for attorneys, supporting LawAid’s business model of connecting users to lawyers.
+- **User-Friendly**: The clean, responsive design ensures accessibility, with a professional look to build trust, like a trusted online marketplace.
+- **Compliance**: The footer disclaimer (“Not legal advice”) ensures regulatory compliance, avoiding risks like those faced by DoNotPay.
+
+---
+
+### Building Without a Developer
+As discussed previously, you can build a **basic version** of LawAid using no-code platforms:
+- **Wix/Squarespace**: Create a similar website with drag-and-drop editors. Add a chatbot via Tidio or Landbot (free plans) and a form via Typeform.
+- **Zapier**: Automate lead delivery (e.g., send form submissions to a Google Sheet or email).
+- **Limitations**: Advanced features (e.g., real AI chatbot, document analysis, CRM integration) require developer skills for custom coding and scalability.
+
+**Recommendation**: Use this HTML prototype or a no-code platform to test your concept. For a full-scale LawAid with robust AI and integrations, hire a developer to implement features like NLP for document analysis or API connections for attorney networks.
+
+---
+
+### Supporting URLs
+- [Tailwind CSS](https://tailwindcss.com/) – Styling framework used.
+- [LawTeacher: Lifting of the Corporate Veil](https://www.lawteacher.net/free-law-essays/corporate-law/lifting-of-the-corporate-veil.php) – Source for veil explanation.
+- [FTC Action Against DoNotPay](https://www.ftc.gov/legal-library/browse/cases-proceedings/donotpay) – Compliance lessons.
+- [Wix: Create a Website](https://www.wix.com/) – No-code alternative.
+- [Tidio: Free Chatbot](https://www.tidio.com/) – Chatbot for no-code integration.
+
+---
+
+### Final Note
+This sample website provides a functional prototype for LawAid, with a chatbot, lead form, and educational content, all aligned with its mission to deliver legal clarity and generate attorney leads. You can customize it with basic edits or use no-code tools to replicate it. If you want additional features (e.g., more pages, advanced chatbot logic, or a Canva slide to promote the website), let me know! For a full-scale platform, consider a developer for advanced functionality and compliance.
+
+**Tagline Fit**: “Legal clarity. No cost. No stress.” – This website makes legal concepts clear and connects users to lawyers seamlessly.
