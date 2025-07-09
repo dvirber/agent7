@@ -1,10 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LawAid: Free Legal Advisor for All</title>
+  <title>LawAid: Royal Legal Guidance</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .chat-bubble {
@@ -14,7 +13,7 @@
       margin: 5px 0;
     }
     .user-bubble {
-      background: #e6f3ff;
+      background: #fff9e6;
       margin-left: auto;
       text-align: right;
     }
@@ -24,11 +23,11 @@
     }
   </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-white font-serif text-black">
   <!-- Header -->
-  <header class="bg-blue-900 text-white py-4">
+  <header class="bg-[#1c1c1c] text-white py-4">
     <div class="container mx-auto px-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">LawAid</h1>
+      <h1 class="text-3xl font-bold text-yellow-500">LawAid</h1>
       <nav>
         <a href="#home" class="mx-2 hover:underline">Home</a>
         <a href="#chatbot" class="mx-2 hover:underline">Ask a Question</a>
@@ -38,43 +37,43 @@
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="bg-blue-100 py-16 text-center">
+  <section id="home" class="bg-yellow-50 py-16 text-center">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-blue-900 mb-4">LawAid: Legal Clarity. No Cost. No Stress.</h2>
-      <p class="text-lg text-gray-700 mb-6">Get instant answers to legal questions and connect with expert attorneys for free.</p>
-      <a href="#lead-form" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600">Find a Lawyer Now</a>
+      <h2 class="text-5xl font-bold text-[#1c1c1c] mb-4">Trusted Legal Insight. Refined Experience.</h2>
+      <p class="text-lg text-gray-800 mb-6">LawAid is your AI-powered legal assistant. Ask legal questions and build your case, all in one place.</p>
+      <a href="#lead-form" class="bg-yellow-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600">Connect With a Lawyer</a>
     </div>
   </section>
 
   <!-- Chatbot Section -->
   <section id="chatbot" class="py-12 bg-white">
     <div class="container mx-auto px-4">
-      <h3 class="text-2xl font-bold text-blue-900 mb-4 text-center">Ask LawAid Anything</h3>
-      <div id="chat-container" class="border rounded-lg p-4 max-w-2xl mx-auto h-64 overflow-y-auto mb-4">
-        <div class="bot-bubble chat-bubble">Hi! I'm LawAid, powered by xAI's Grok. Ask me a legal question, like 'What’s lifting the corporate veil?'</div>
+      <h3 class="text-3xl font-bold text-[#1c1c1c] mb-4 text-center">Your Legal Assistant</h3>
+      <div id="chat-container" class="border border-gray-300 rounded-lg p-4 max-w-2xl mx-auto h-72 overflow-y-auto mb-4 bg-yellow-50">
+        <div class="bot-bubble chat-bubble">Hello. I'm LawAid. Ask your legal question to get started. I only answer legal topics. Upload documents when ready to build your case.</div>
       </div>
       <div class="flex max-w-2xl mx-auto">
-        <input id="chat-input" type="text" class="flex-1 p-2 border rounded-l-lg" placeholder="Type your question...">
-        <button id="chat-submit" class="bg-blue-900 text-white px-4 py-2 rounded-r-lg hover:bg-blue-800">Send</button>
+        <input id="chat-input" type="text" class="flex-1 p-2 border rounded-l-lg" placeholder="Enter your legal question...">
+        <button id="chat-submit" class="bg-[#1c1c1c] text-yellow-400 px-4 py-2 rounded-r-lg hover:bg-yellow-600 hover:text-white">Send</button>
       </div>
     </div>
   </section>
 
-  <!-- Educational Section -->
-  <section id="education" class="py-12 bg-gray-100">
-    <div class="container mx-auto px-4">
-      <h3 class="text-2xl font-bold text-blue-900 mb-4 text-center">Learn About Lifting the Corporate Veil</h3>
-      <div class="max-w-2xl mx-auto text-gray-700">
-        <p class="mb-4">When a company is used for fraud or to dodge legal duties, courts may 'lift the corporate veil' to hold owners personally liable. For example, if a company hides debts, its owners might have to pay. LawAid explains complex terms simply and connects you to corporate law experts.</p>
-        <a href="#lead-form" class="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600">Talk to a Corporate Lawyer</a>
-      </div>
+  <!-- File Upload Section -->
+  <section class="py-8 bg-gray-100">
+    <div class="container mx-auto px-4 max-w-xl">
+      <h3 class="text-xl font-semibold text-center text-[#1c1c1c] mb-4">Upload Case Documents</h3>
+      <form id="uploadForm" class="bg-white p-4 rounded-lg shadow space-y-4" enctype="multipart/form-data">
+        <input type="file" name="legalFiles" multiple accept=".pdf,.doc,.docx" required class="w-full border p-2 rounded-lg">
+        <button type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 w-full">Upload Files</button>
+      </form>
     </div>
   </section>
 
-  <!-- Lead Capture Form -->
+  <!-- Lead Form -->
   <section id="lead-form" class="py-12 bg-white">
     <div class="container mx-auto px-4">
-      <h3 class="text-2xl font-bold text-blue-900 mb-4 text-center">Connect with an Attorney</h3>
+      <h3 class="text-2xl font-bold text-[#1c1c1c] mb-4 text-center">Connect with an Attorney</h3>
       <form id="leadForm" class="max-w-md mx-auto space-y-4">
         <input type="text" name="name" placeholder="Your Name" required class="w-full p-2 border rounded-lg">
         <input type="email" name="email" placeholder="Your Email" required class="w-full p-2 border rounded-lg">
@@ -85,15 +84,15 @@
           <option value="family_law">Family Law</option>
           <option value="personal_injury">Personal Injury</option>
         </select>
-        <button type="submit" class="w-full bg-green-500 text-white p-2 rounded-lg hover:bg-green-600">Get Help Now</button>
+        <button type="submit" class="w-full bg-yellow-500 text-white p-2 rounded-lg hover:bg-yellow-600">Get Help Now</button>
       </form>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-900 text-white py-4">
+  <footer class="bg-[#1c1c1c] text-white py-4">
     <div class="container mx-auto px-4 text-center">
-      <p class="text-sm">LawAid provides general information, not legal advice. Consult a licensed attorney for professional guidance.</p>
+      <p class="text-sm">LawAid provides general legal information. Not a substitute for legal advice. Consult a licensed attorney for professional guidance.</p>
       <p class="text-sm mt-2">Contact: support@lawaid.com | © 2025 LawAid</p>
     </div>
   </footer>
@@ -103,33 +102,38 @@
     const chatInput = document.getElementById('chat-input');
     const chatSubmit = document.getElementById('chat-submit');
     const leadForm = document.getElementById('leadForm');
+    const uploadForm = document.getElementById('uploadForm');
 
-    // Replace with your xAI API key (store securely in production, e.g., server-side or .env)
-    const API_KEY = 'YOUR_API_KEY';
-    const API_URL = 'https://api.grok.xai.com/v1/completions';
+    const API_KEY = 'YOUR_OPENAI_API_KEY';
+    const API_URL = 'https://api.openai.com/v1/chat/completions';
 
-    async function fetchGrokResponse(question) {
+    async function fetchLegalResponse(question) {
+      if (!/\blegal\b|law|attorney|case|contract|rights|court/i.test(question)) {
+        return "I can only assist with legal-related questions. Please ask a legal question.";
+      }
+
+      const headers = {
+        'Authorization': `Bearer ${API_KEY}`,
+        'Content-Type': 'application/json'
+      };
+
+      const body = JSON.stringify({
+        model: 'gpt-4',
+        messages: [
+          { role: 'system', content: 'You are LawAid, a legal assistant. Only respond to legal-related questions. Do NOT answer questions about AI, chatbots, or programming. Include a disclaimer in every answer that this is not legal advice and recommend consulting a licensed attorney.' },
+          { role: 'user', content: question }
+        ],
+        temperature: 0.4,
+        max_tokens: 400
+      });
+
       try {
-        const response = await fetch(API_URL, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${API_KEY}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            model: 'grok-3', // Use 'grok-2' if preferred
-            prompt: `You are LawAid, a legal information assistant. Answer the following legal question in plain English, concisely, and accurately. Always include a disclaimer that this is not legal advice and recommend consulting a licensed attorney. Question: ${question}`,
-            max_tokens: 200,
-            temperature: 0.7
-          })
-        });
-
-        if (!response.ok) throw new Error('API request failed');
+        const response = await fetch(API_URL, { method: 'POST', headers, body });
         const data = await response.json();
-        return data.choices[0].text || 'Sorry, I couldn’t process that. Try again or connect with a lawyer below.';
+        return (data.choices?.[0]?.message?.content || 'Unable to provide a response. Please try again.') + '<br><i>This is not legal advice. Always consult a licensed attorney.</i>';
       } catch (error) {
         console.error('Error:', error);
-        return 'Oops, something went wrong. Please try again or <a href="#lead-form" class="text-blue-900 underline">connect with a lawyer</a>. <br><i>Not legal advice; consult an attorney.</i>';
+        return 'Error processing your request. Please try again or consult a lawyer.';
       }
     }
 
@@ -137,20 +141,18 @@
       const userInput = chatInput.value.trim();
       if (!userInput) return;
 
-      // Add user message
       const userBubble = document.createElement('div');
       userBubble.className = 'user-bubble chat-bubble';
       userBubble.textContent = userInput;
       chatContainer.appendChild(userBubble);
 
-      // Fetch and display Grok response
       const botBubble = document.createElement('div');
       botBubble.className = 'bot-bubble chat-bubble';
-      botBubble.innerHTML = 'Loading...';
+      botBubble.innerHTML = 'Thinking...';
       chatContainer.appendChild(botBubble);
 
-      const response = await fetchGrokResponse(userInput);
-      botBubble.innerHTML = `${response} <br><a href="#lead-form" class="text-blue-900 underline">Need more help? Connect with a lawyer.</a>`;
+      const response = await fetchLegalResponse(userInput);
+      botBubble.innerHTML = response;
 
       chatContainer.scrollTop = chatContainer.scrollHeight;
       chatInput.value = '';
@@ -158,9 +160,14 @@
 
     leadForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const formData = new FormData(leadForm);
-      alert('Lead submitted! We’ll connect you with an attorney soon.');
+      alert('Thanks! We will connect you with an attorney shortly.');
       leadForm.reset();
+    });
+
+    uploadForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Documents uploaded! A legal expert will review them.');
+      uploadForm.reset();
     });
   </script>
 </body>
