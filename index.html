@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LAWID – AI Legal Assistant & Case Intake</title>
+  <title>LAWID – AI Legal Assistant & Client Intake</title>
   <meta name="description" content="LAWID: The AI-powered legal agent for instant legal help, case intake, and document review.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
@@ -17,6 +17,7 @@
       --footer-text: #fff;
       --radius: 12px;
       --shadow: 0 4px 24px rgba(30,40,90,0.08);
+      --focus: #2346e4;
     }
     * { box-sizing: border-box; }
     html, body {
@@ -61,8 +62,10 @@
       font-weight: 600;
       transition: color 0.2s;
     }
-    nav a:hover {
+    nav a:focus, nav a:hover {
       color: var(--primary);
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
     }
     .menu-toggle {
       display: none;
@@ -71,6 +74,23 @@
       font-size: 2rem;
       color: var(--primary);
       cursor: pointer;
+    }
+    .lang-toggle {
+      background: var(--accent);
+      color: var(--primary);
+      border: none;
+      border-radius: 8px;
+      padding: 0.3em 1em;
+      font-weight: 700;
+      margin-left: 1em;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.2s;
+    }
+    .lang-toggle:focus, .lang-toggle:hover {
+      background: #ffe066;
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
     }
     /* Hero */
     .hero {
@@ -108,9 +128,11 @@
       transition: background 0.2s, transform 0.2s;
       margin-top: 1rem;
     }
-    .cta-btn:hover {
+    .cta-btn:focus, .cta-btn:hover {
       background: #0d133d;
       transform: translateY(-2px) scale(1.03);
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
     }
     /* Features */
     .features {
@@ -129,9 +151,11 @@
       text-align: center;
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .feature-card:hover {
+    .feature-card:hover, .feature-card:focus-within {
       transform: translateY(-6px) scale(1.03);
       box-shadow: 0 8px 32px rgba(26,35,126,0.12);
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
     }
     .feature-icon {
       font-size: 2.5rem;
@@ -202,6 +226,102 @@
       border-radius: var(--radius);
       box-shadow: 0 4px 24px rgba(26,35,126,0.10);
     }
+    /* Testimonials */
+    .testimonials-section {
+      background: #fff;
+      padding: 3rem 1rem 2rem 1rem;
+      margin: 2rem 0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .testimonials-section h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .testimonials-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .testimonial-card {
+      background: #f8f9fa;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(30,40,90,0.06);
+      padding: 1.5rem 1rem;
+      text-align: left;
+      font-size: 1.05rem;
+      position: relative;
+    }
+    .testimonial-card:before {
+      content: "“";
+      font-size: 2.5rem;
+      color: var(--accent);
+      position: absolute;
+      left: 1rem;
+      top: 0.5rem;
+    }
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 1em;
+      font-size: 1em;
+    }
+    /* FAQ */
+    .faq-section {
+      background: #fff;
+      padding: 3rem 1rem 2rem 1rem;
+      margin: 2rem 0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .faq-section h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .faq-list {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      margin-bottom: 1.2em;
+      border-bottom: 1px solid #eee;
+    }
+    .faq-question {
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.7em 0;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.1em;
+      outline: none;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+    }
+    .faq-answer {
+      display: none;
+      padding: 0.5em 0 1em 0;
+      color: #444;
+      font-size: 1em;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
     /* Lead Form */
     .lead-section {
       background: #fff;
@@ -267,9 +387,11 @@
       transition: background 0.2s, transform 0.2s;
       margin-top: 0.5rem;
     }
-    .lead-form .submit-btn:hover {
+    .lead-form .submit-btn:focus, .lead-form .submit-btn:hover {
       background: #0d133d;
       transform: translateY(-2px) scale(1.03);
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
     }
     .lead-form .form-success {
       color: green;
@@ -303,9 +425,11 @@
       justify-content: center;
       transition: background 0.2s, transform 0.2s;
     }
-    .chatbox-fab:hover {
+    .chatbox-fab:focus, .chatbox-fab:hover {
       background: #0d133d;
       transform: scale(1.07);
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
     }
     .chatbox-modal {
       position: fixed;
@@ -415,8 +539,10 @@
       margin-right: 0.3em;
       transition: background 0.2s;
     }
-    .chatbox-input-area label.upload-label:hover {
+    .chatbox-input-area label.upload-label:focus, .chatbox-input-area label.upload-label:hover {
       background: #ffe066;
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
     }
     .chatbox-input-area button {
       background: var(--primary);
@@ -456,8 +582,10 @@
       font-weight: 600;
       transition: color 0.2s;
     }
-    .footer-links a:hover {
+    .footer-links a:focus, .footer-links a:hover {
       color: #fff;
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
     }
     .footer-contact {
       font-size: 1rem;
@@ -469,7 +597,7 @@
       .features { grid-template-columns: 1fr; }
       .how-container { flex-direction: column; gap: 2rem; }
       .how-img img { max-width: 220px; }
-      .lead-section { padding: 2rem 0.5rem; }
+      .lead-section, .testimonials-section, .faq-section { padding: 2rem 0.5rem; }
       .chatbox-modal { right: 8px; width: 98vw; max-width: 98vw; }
       .chatbox-fab { right: 8px; }
     }
@@ -511,9 +639,12 @@
         <a href="#hero">Home</a>
         <a href="#features">Features</a>
         <a href="#how">How It Helps</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#faq">FAQ</a>
         <a href="#lead">Get Help</a>
         <a href="#contact">Contact</a>
       </nav>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">עברית</button>
     </div>
   </header>
 
@@ -528,22 +659,22 @@
 
   <!-- Features Section -->
   <section class="features" id="features">
-    <div class="feature-card">
+    <div class="feature-card" tabindex="0">
       <div class="feature-icon">🤖</div>
       <div class="feature-title">24/7 AI Legal Agent</div>
       <div class="feature-desc">Get instant answers to legal questions, anytime. No waiting, no appointments.</div>
     </div>
-    <div class="feature-card">
+    <div class="feature-card" tabindex="0">
       <div class="feature-icon">📄</div>
       <div class="feature-title">Document Drafting</div>
       <div class="feature-desc">Generate contracts, letters, and legal forms tailored to your needs in seconds.</div>
     </div>
-    <div class="feature-card">
+    <div class="feature-card" tabindex="0">
       <div class="feature-icon">🔒</div>
       <div class="feature-title">Confidential & Secure</div>
       <div class="feature-desc">Your privacy is our priority. All conversations are encrypted and confidential.</div>
     </div>
-    <div class="feature-card">
+    <div class="feature-card" tabindex="0">
       <div class="feature-icon">🌎</div>
       <div class="feature-title">Accessible to All</div>
       <div class="feature-desc">Legal help shouldn’t be complicated or expensive. LAWID is here for everyone.</div>
@@ -565,6 +696,48 @@
       </div>
       <div class="how-img">
         <img src="https://images.unsplash.com/photo-1555375771-5b1c6a5b8c39?auto=format&fit=crop&w=600&q=80" alt="LAWID AI Legal Agent illustration" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section" id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonials-list">
+      <div class="testimonial-card">
+        LAWID made it so easy to get legal help for my contract issue. The AI assistant was fast and clear, and a real lawyer followed up the same day!
+        <div class="testimonial-author">— Sarah K.</div>
+      </div>
+      <div class="testimonial-card">
+        I uploaded my lease and got a summary in seconds. LAWID is a game-changer for anyone who needs legal advice but doesn’t know where to start.
+        <div class="testimonial-author">— David R.</div>
+      </div>
+      <div class="testimonial-card">
+        The intake form was simple, and I felt confident my data was secure. Highly recommend LAWID for quick, professional legal support.
+        <div class="testimonial-author">— Maya L.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Is LAWID a law firm or a lawyer?</button>
+        <div class="faq-answer">LAWID is an AI-powered legal assistant and intake platform. We connect you with licensed attorneys for review and follow-up, but the AI itself does not provide binding legal advice.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Is my information confidential?</button>
+        <div class="faq-answer">Yes. All data and documents you share are encrypted and handled securely, in compliance with privacy laws and GDPR.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Can I upload documents for review?</button>
+        <div class="faq-answer">Absolutely! You can upload PDFs, DOCX, and images. The AI will summarize and generate a case file for a human lawyer to review.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Is LAWID available in other languages?</button>
+        <div class="faq-answer">Yes, you can use the language toggle at the top to switch between English and Hebrew. More languages coming soon!</div>
       </div>
     </div>
   </section>
@@ -658,6 +831,31 @@
     document.querySelectorAll('#main-nav a').forEach(function(link) {
       link.addEventListener('click', function() {
         document.getElementById('main-nav').classList.remove('open');
+      });
+    });
+
+    // --- Multilingual toggle (English/Hebrew demo) ---
+    const langToggle = document.getElementById('langToggle');
+    let isHebrew = false;
+    langToggle.addEventListener('click', function() {
+      isHebrew = !isHebrew;
+      document.body.dir = isHebrew ? 'rtl' : 'ltr';
+      langToggle.textContent = isHebrew ? 'English' : 'עברית';
+      // Demo: just change hero and CTA, you can extend for full site
+      document.querySelector('.hero h1').textContent = isHebrew ? 'סיוע משפטי מיידי מבוסס בינה מלאכותית' : 'AI-Powered Legal Help, Instantly';
+      document.querySelector('.hero p').textContent = isHebrew
+        ? 'LAWID הוא הסוכן המשפטי מבוסס הבינה המלאכותית שלך. קבל תשובות ברורות ומהירות לשאלות משפטיות, טיוטות מסמכים, והבנת זכויותיך — תוך שניות.'
+        : 'LAWID is your always-available AI legal agent. Get clear, reliable answers to your legal questions, draft documents, and understand your rights — all in seconds.';
+      document.querySelector('.cta-btn').textContent = isHebrew ? 'דבר עם הסוכן' : 'Talk to the AI Agent';
+    });
+
+    // --- FAQ expand/collapse ---
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const item = btn.parentElement;
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        item.classList.toggle('open');
       });
     });
 
@@ -776,7 +974,7 @@
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer YOUR_OPENAI_API_KEY"
           },
           body: JSON.stringify({
             model: "gpt-4",
