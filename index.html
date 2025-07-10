@@ -1,173 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LawAid: Royal Legal Guidance</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LAW AID – Your AI Legal Assistant</title>
+  <meta name="description" content="LAW AID: The AI-powered legal agent that makes legal help accessible, fast, and reliable.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    .chat-bubble {
-      max-width: 80%;
-      padding: 10px;
-      border-radius: 10px;
-      margin: 5px 0;
+    :root {
+      --primary: #1a237e;
+      --accent: #ffd600;
+      --bg: #f8f9fa;
+      --text: #222;
+      --header-bg: #fff;
+      --footer-bg: #222;
+      --footer-text: #fff;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(30,40,90,0.08);
     }
-    .user-bubble {
-      background: #fff9e6;
-      margin-left: auto;
-      text-align: right;
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
     }
-    .bot-bubble {
-      background: #f3f4f6;
-      margin-right: auto;
+    header {
+      background: var(--header-bg);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--primary);
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--primary);
+    }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+    /* Hero */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
+      text-align: center;
+      padding: 3rem 1rem 2rem 1rem;
+      background: linear-gradient(120deg, #e3e7fd 0%, #f8f9fa 100%);
+    }
+    .hero h1 {
+      font-size: 2.7rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+      color: #333;
+    }
+    .cta-btn {
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      padding: 0.9em 2.2em;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1.1rem;
+      box-shadow: 0 2px 12px rgba(26,35,126,0.08);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 1rem;
+    }
+    .cta-btn:hover {
+      background: #0d133d;
+      transform: translateY(-2px) scale(1.03);
+    }
+    /* Features */
+    .features {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1rem 2rem 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(26,35,126,0.12);
+    }
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .feature-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .feature-desc {
+      color: #444;
+      font-size: 1rem;
+    }
+    /* How it helps */
+    .how-section {
+      background: #fffde7;
+      padding: 3rem 1rem;
+      margin: 3rem 0 2rem 0;
+    }
+    .how-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+      justify-content: space-between;
+    }
+    .how-text {
+      flex: 1 1 320px;
+      min-width: 260px;
+    }
+    .how-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .how-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .how-list li {
+      margin-bottom: 1.1rem;
+      font-size: 1.08rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7em;
+    }
+    .how-list li::before {
+      content: "✔";
+      color: var(--accent);
+      font-size: 1.2em;
+      margin-right: 0.5em;
+      margin-top: 0.1em;
+    }
+    .how-img {
+      flex: 1 1 320px;
+      min-width: 260px;
+      text-align: center;
+    }
+    .how-img img {
+      max-width: 320px;
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 24px rgba(26,35,126,0.10);
+    }
+    /* Footer */
+    footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 2rem 1rem 1rem 1rem;
+      text-align: center;
+    }
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+    .footer-links a {
+      color: var(--accent);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: #fff;
+    }
+    .footer-contact {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    /* Responsive */
+    @media (max-width: 800px) {
+      .nav-container { padding: 1rem; }
+      .features { grid-template-columns: 1fr; }
+      .how-container { flex-direction: column; gap: 2rem; }
+      .how-img img { max-width: 220px; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .nav-container { flex-direction: column; gap: 0.5rem; }
+      nav { flex-direction: column; gap: 1rem; }
+      .footer-links a { margin: 0 0.5rem; }
+    }
+    /* Mobile nav */
+    @media (max-width: 700px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        right: 2rem;
+        box-shadow: var(--shadow);
+        border-radius: var(--radius);
+        padding: 1rem 2rem;
+        z-index: 200;
+      }
+      nav.open { display: flex; }
+      .menu-toggle { display: block; }
     }
   </style>
 </head>
-<body class="bg-white font-serif text-black">
+<body>
   <!-- Header -->
-  <header class="bg-[#1c1c1c] text-white py-4">
-    <div class="container mx-auto px-4 flex justify-between items-center">
-      <h1 class="text-3xl font-bold text-yellow-500">LawAid</h1>
-      <nav>
-        <a href="#home" class="mx-2 hover:underline">Home</a>
-        <a href="#chatbot" class="mx-2 hover:underline">Ask a Question</a>
-        <a href="#lead-form" class="mx-2 hover:underline">Get Legal Help</a>
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <span style="font-size:1.5em; color:var(--accent);">⚖️</span> LAW AID
+      </div>
+      <button class="menu-toggle" aria-label="Open navigation" onclick="toggleMenu()">☰</button>
+      <nav id="main-nav">
+        <a href="#hero">Home</a>
+        <a href="#features">Features</a>
+        <a href="#how">How It Helps</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="bg-yellow-50 py-16 text-center">
-    <div class="container mx-auto px-4">
-      <h2 class="text-5xl font-bold text-[#1c1c1c] mb-4">Trusted Legal Insight. Refined Experience.</h2>
-      <p class="text-lg text-gray-800 mb-6">LawAid is your AI-powered legal assistant. Ask legal questions and build your case, all in one place.</p>
-      <a href="#lead-form" class="bg-yellow-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600">Connect With a Lawyer</a>
+  <section class="hero" id="hero">
+    <h1>AI-Powered Legal Help, Instantly</h1>
+    <p>
+      LAW AID is your always-available AI legal agent. Get clear, reliable answers to your legal questions, draft documents, and understand your rights — all in seconds.
+    </p>
+    <a href="#contact" class="cta-btn">Talk to the AI Agent</a>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <div class="feature-title">24/7 AI Legal Agent</div>
+      <div class="feature-desc">Get instant answers to legal questions, anytime. No waiting, no appointments.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📄</div>
+      <div class="feature-title">Document Drafting</div>
+      <div class="feature-desc">Generate contracts, letters, and legal forms tailored to your needs in seconds.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔒</div>
+      <div class="feature-title">Confidential & Secure</div>
+      <div class="feature-desc">Your privacy is our priority. All conversations are encrypted and confidential.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌎</div>
+      <div class="feature-title">Accessible to All</div>
+      <div class="feature-desc">Legal help shouldn’t be complicated or expensive. LAW AID is here for everyone.</div>
     </div>
   </section>
 
-  <!-- Chatbot Section -->
-  <section id="chatbot" class="py-12 bg-white">
-    <div class="container mx-auto px-4">
-      <h3 class="text-3xl font-bold text-[#1c1c1c] mb-4 text-center">Your Legal Assistant</h3>
-      <div id="chat-container" class="border border-gray-300 rounded-lg p-4 max-w-2xl mx-auto h-72 overflow-y-auto mb-4 bg-yellow-50">
-        <div class="bot-bubble chat-bubble">Hello. I'm LawAid. Ask your legal question to get started. I only answer legal topics. Upload documents when ready to build your case.</div>
+  <!-- How It Helps Section -->
+  <section class="how-section" id="how">
+    <div class="how-container">
+      <div class="how-text">
+        <div class="how-title">How LAW AID Empowers You</div>
+        <ul class="how-list">
+          <li>Understand your legal rights and options in plain language</li>
+          <li>Draft and review legal documents with AI guidance</li>
+          <li>Save time and money compared to traditional legal services</li>
+          <li>Get support for contracts, employment, housing, family law, and more</li>
+          <li>Connect with a human lawyer if you need further help</li>
+        </ul>
       </div>
-      <div class="flex max-w-2xl mx-auto">
-        <input id="chat-input" type="text" class="flex-1 p-2 border rounded-l-lg" placeholder="Enter your legal question...">
-        <button id="chat-submit" class="bg-[#1c1c1c] text-yellow-400 px-4 py-2 rounded-r-lg hover:bg-yellow-600 hover:text-white">Send</button>
+      <div class="how-img">
+        <img src="https://images.unsplash.com/photo-1555375771-5b1c6a5b8c39?auto=format&fit=crop&w=600&q=80" alt="LAW AID AI Legal Agent illustration" />
       </div>
     </div>
   </section>
 
-  <!-- File Upload Section -->
-  <section class="py-8 bg-gray-100">
-    <div class="container mx-auto px-4 max-w-xl">
-      <h3 class="text-xl font-semibold text-center text-[#1c1c1c] mb-4">Upload Case Documents</h3>
-      <form id="uploadForm" class="bg-white p-4 rounded-lg shadow space-y-4" enctype="multipart/form-data">
-        <input type="file" name="legalFiles" multiple accept=".pdf,.doc,.docx" required class="w-full border p-2 rounded-lg">
-        <button type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 w-full">Upload Files</button>
-      </form>
-    </div>
+  <!-- Call to Action (repeated) -->
+  <section class="hero" style="padding:2rem 1rem 2rem 1rem; min-height:unset;">
+    <h2 style="font-size:2rem; font-weight:700; margin-bottom:0.5em;">Ready for Smarter Legal Help?</h2>
+    <a href="#contact" class="cta-btn">Talk to the AI Agent</a>
   </section>
 
-  <!-- Lead Form -->
-  <section id="lead-form" class="py-12 bg-white">
-    <div class="container mx-auto px-4">
-      <h3 class="text-2xl font-bold text-[#1c1c1c] mb-4 text-center">Connect with an Attorney</h3>
-      <form id="leadForm" class="max-w-md mx-auto space-y-4">
-        <input type="text" name="name" placeholder="Your Name" required class="w-full p-2 border rounded-lg">
-        <input type="email" name="email" placeholder="Your Email" required class="w-full p-2 border rounded-lg">
-        <input type="text" name="location" placeholder="Your Location" required class="w-full p-2 border rounded-lg">
-        <select name="practice_area" required class="w-full p-2 border rounded-lg">
-          <option value="" disabled selected>Select Legal Issue</option>
-          <option value="corporate_law">Corporate Law</option>
-          <option value="family_law">Family Law</option>
-          <option value="personal_injury">Personal Injury</option>
-        </select>
-        <button type="submit" class="w-full bg-yellow-500 text-white p-2 rounded-lg hover:bg-yellow-600">Get Help Now</button>
-      </form>
+  <!-- Contact / Footer -->
+  <footer id="contact">
+    <div class="footer-links">
+      <a href="mailto:info@lawaid.com">Email</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-[#1c1c1c] text-white py-4">
-    <div class="container mx-auto px-4 text-center">
-      <p class="text-sm">LawAid provides general legal information. Not a substitute for legal advice. Consult a licensed attorney for professional guidance.</p>
-      <p class="text-sm mt-2">Contact: support@lawaid.com | © 2025 LawAid</p>
+    <div class="footer-contact">
+      &copy; 2024 LAW AID. All rights reserved.
+    </div>
+    <div style="font-size:0.95em; color:#aaa;">
+      This is a demo legal-tech project. Not a substitute for professional legal advice.
     </div>
   </footer>
 
   <script>
-    const chatContainer = document.getElementById('chat-container');
-    const chatInput = document.getElementById('chat-input');
-    const chatSubmit = document.getElementById('chat-submit');
-    const leadForm = document.getElementById('leadForm');
-    const uploadForm = document.getElementById('uploadForm');
-
-    const API_KEY = 'YOUR_OPENAI_API_KEY';
-    const API_URL = 'https://api.openai.com/v1/chat/completions';
-
-    async function fetchLegalResponse(question) {
-      if (!/\blegal\b|law|attorney|case|contract|rights|court/i.test(question)) {
-        return "I can only assist with legal-related questions. Please ask a legal question.";
-      }
-
-      const headers = {
-        'Authorization': `Bearer ${API_KEY}`,
-        'Content-Type': 'application/json'
-      };
-
-      const body = JSON.stringify({
-        model: 'gpt-4',
-        messages: [
-          { role: 'system', content: 'You are LawAid, a legal assistant. Only respond to legal-related questions. Do NOT answer questions about AI, chatbots, or programming. Include a disclaimer in every answer that this is not legal advice and recommend consulting a licensed attorney.' },
-          { role: 'user', content: question }
-        ],
-        temperature: 0.4,
-        max_tokens: 400
-      });
-
-      try {
-        const response = await fetch(API_URL, { method: 'POST', headers, body });
-        const data = await response.json();
-        return (data.choices?.[0]?.message?.content || 'Unable to provide a response. Please try again.') + '<br><i>This is not legal advice. Always consult a licensed attorney.</i>';
-      } catch (error) {
-        console.error('Error:', error);
-        return 'Error processing your request. Please try again or consult a lawyer.';
-      }
+    // Mobile nav toggle
+    function toggleMenu() {
+      var nav = document.getElementById('main-nav');
+      nav.classList.toggle('open');
     }
-
-    chatSubmit.addEventListener('click', async () => {
-      const userInput = chatInput.value.trim();
-      if (!userInput) return;
-
-      const userBubble = document.createElement('div');
-      userBubble.className = 'user-bubble chat-bubble';
-      userBubble.textContent = userInput;
-      chatContainer.appendChild(userBubble);
-
-      const botBubble = document.createElement('div');
-      botBubble.className = 'bot-bubble chat-bubble';
-      botBubble.innerHTML = 'Thinking...';
-      chatContainer.appendChild(botBubble);
-
-      const response = await fetchLegalResponse(userInput);
-      botBubble.innerHTML = response;
-
-      chatContainer.scrollTop = chatContainer.scrollHeight;
-      chatInput.value = '';
-    });
-
-    leadForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Thanks! We will connect you with an attorney shortly.');
-      leadForm.reset();
-    });
-
-    uploadForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Documents uploaded! A legal expert will review them.');
-      uploadForm.reset();
+    // Close nav on link click (mobile)
+    document.querySelectorAll('#main-nav a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('main-nav').classList.remove('open');
+      });
     });
   </script>
 </body>
