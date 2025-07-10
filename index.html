@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LAW AID – Your AI Legal Assistant</title>
-  <meta name="description" content="LAW AID: The AI-powered legal agent that makes legal help accessible, fast, and reliable.">
+  <title>LAWID – AI Legal Assistant & Case Intake</title>
+  <meta name="description" content="LAWID: The AI-powered legal agent for instant legal help, case intake, and document review.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -202,6 +202,243 @@
       border-radius: var(--radius);
       box-shadow: 0 4px 24px rgba(26,35,126,0.10);
     }
+    /* Lead Form */
+    .lead-section {
+      background: #fff;
+      padding: 3rem 1rem 2rem 1rem;
+      margin: 2rem 0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .lead-section h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .lead-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .lead-form label {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+    .lead-form input, .lead-form textarea {
+      width: 100%;
+      padding: 0.7em;
+      border: 1px solid #ccc;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-family: inherit;
+      background: #f8f9fa;
+      transition: border 0.2s;
+    }
+    .lead-form input:focus, .lead-form textarea:focus {
+      border: 1.5px solid var(--primary);
+      outline: none;
+    }
+    .lead-form textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+    .lead-form .gdpr {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      font-size: 0.98em;
+    }
+    .lead-form .submit-btn {
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      padding: 0.8em 2em;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1.1rem;
+      box-shadow: 0 2px 12px rgba(26,35,126,0.08);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 0.5rem;
+    }
+    .lead-form .submit-btn:hover {
+      background: #0d133d;
+      transform: translateY(-2px) scale(1.03);
+    }
+    .lead-form .form-success {
+      color: green;
+      font-weight: 600;
+      margin-top: 0.5em;
+      text-align: center;
+    }
+    .lead-form .form-error {
+      color: #b71c1c;
+      font-weight: 600;
+      margin-top: 0.5em;
+      text-align: center;
+    }
+    /* Chatbox */
+    .chatbox-fab {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 2rem;
+      box-shadow: 0 4px 24px rgba(26,35,126,0.18);
+      cursor: pointer;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .chatbox-fab:hover {
+      background: #0d133d;
+      transform: scale(1.07);
+    }
+    .chatbox-modal {
+      position: fixed;
+      bottom: 110px;
+      right: 32px;
+      width: 350px;
+      max-width: 95vw;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 32px rgba(26,35,126,0.18);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: fadeInUp 0.3s;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .chatbox-header {
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .chatbox-header .close-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+    .chatbox-messages {
+      flex: 1;
+      padding: 1rem;
+      background: #f8f9fa;
+      overflow-y: auto;
+      max-height: 320px;
+      font-size: 1rem;
+    }
+    .chatbox-message {
+      margin-bottom: 1.1em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2em;
+    }
+    .chatbox-message.user {
+      align-items: flex-end;
+    }
+    .chatbox-message.bot {
+      align-items: flex-start;
+    }
+    .chatbox-message .bubble {
+      padding: 0.7em 1em;
+      border-radius: 16px;
+      max-width: 80%;
+      background: #e3e7fd;
+      color: var(--primary);
+      font-weight: 500;
+      word-break: break-word;
+    }
+    .chatbox-message.user .bubble {
+      background: var(--primary);
+      color: #fff;
+      align-self: flex-end;
+    }
+    .chatbox-message.bot .bubble {
+      background: #e3e7fd;
+      color: var(--primary);
+      align-self: flex-start;
+    }
+    .chatbox-input-area {
+      display: flex;
+      gap: 0.5em;
+      padding: 1em;
+      background: #fff;
+      border-top: 1px solid #eee;
+      align-items: center;
+    }
+    .chatbox-input-area input[type="text"] {
+      flex: 1;
+      padding: 0.7em;
+      border-radius: 16px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      font-family: inherit;
+      background: #f8f9fa;
+    }
+    .chatbox-input-area input[type="file"] {
+      display: none;
+    }
+    .chatbox-input-area label.upload-label {
+      background: #ffd600;
+      color: #222;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2em;
+      margin-right: 0.3em;
+      transition: background 0.2s;
+    }
+    .chatbox-input-area label.upload-label:hover {
+      background: #ffe066;
+    }
+    .chatbox-input-area button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      padding: 0.7em 1.2em;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .chatbox-input-area button:disabled {
+      background: #bdbdbd;
+      cursor: not-allowed;
+    }
+    .chatbox-uploaded-file {
+      font-size: 0.95em;
+      color: #444;
+      margin-top: 0.3em;
+      word-break: break-all;
+    }
     /* Footer */
     footer {
       background: var(--footer-bg);
@@ -232,12 +469,16 @@
       .features { grid-template-columns: 1fr; }
       .how-container { flex-direction: column; gap: 2rem; }
       .how-img img { max-width: 220px; }
+      .lead-section { padding: 2rem 0.5rem; }
+      .chatbox-modal { right: 8px; width: 98vw; max-width: 98vw; }
+      .chatbox-fab { right: 8px; }
     }
     @media (max-width: 600px) {
       .hero h1 { font-size: 2rem; }
       .nav-container { flex-direction: column; gap: 0.5rem; }
       nav { flex-direction: column; gap: 1rem; }
       .footer-links a { margin: 0 0.5rem; }
+      .chatbox-modal { bottom: 80px; }
     }
     /* Mobile nav */
     @media (max-width: 700px) {
@@ -263,13 +504,14 @@
   <header>
     <div class="nav-container">
       <div class="logo">
-        <span style="font-size:1.5em; color:var(--accent);">⚖️</span> LAW AID
+        <span style="font-size:1.5em; color:var(--accent);">⚖️</span> LAWID
       </div>
       <button class="menu-toggle" aria-label="Open navigation" onclick="toggleMenu()">☰</button>
       <nav id="main-nav">
         <a href="#hero">Home</a>
         <a href="#features">Features</a>
         <a href="#how">How It Helps</a>
+        <a href="#lead">Get Help</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -279,9 +521,9 @@
   <section class="hero" id="hero">
     <h1>AI-Powered Legal Help, Instantly</h1>
     <p>
-      LAW AID is your always-available AI legal agent. Get clear, reliable answers to your legal questions, draft documents, and understand your rights — all in seconds.
+      LAWID is your always-available AI legal agent. Get clear, reliable answers to your legal questions, draft documents, and understand your rights — all in seconds.
     </p>
-    <a href="#contact" class="cta-btn">Talk to the AI Agent</a>
+    <a href="#lead" class="cta-btn">Talk to the AI Agent</a>
   </section>
 
   <!-- Features Section -->
@@ -304,7 +546,7 @@
     <div class="feature-card">
       <div class="feature-icon">🌎</div>
       <div class="feature-title">Accessible to All</div>
-      <div class="feature-desc">Legal help shouldn’t be complicated or expensive. LAW AID is here for everyone.</div>
+      <div class="feature-desc">Legal help shouldn’t be complicated or expensive. LAWID is here for everyone.</div>
     </div>
   </section>
 
@@ -312,7 +554,7 @@
   <section class="how-section" id="how">
     <div class="how-container">
       <div class="how-text">
-        <div class="how-title">How LAW AID Empowers You</div>
+        <div class="how-title">How LAWID Empowers You</div>
         <ul class="how-list">
           <li>Understand your legal rights and options in plain language</li>
           <li>Draft and review legal documents with AI guidance</li>
@@ -322,44 +564,261 @@
         </ul>
       </div>
       <div class="how-img">
-        <img src="https://images.unsplash.com/photo-1555375771-5b1c6a5b8c39?auto=format&fit=crop&w=600&q=80" alt="LAW AID AI Legal Agent illustration" />
+        <img src="https://images.unsplash.com/photo-1555375771-5b1c6a5b8c39?auto=format&fit=crop&w=600&q=80" alt="LAWID AI Legal Agent illustration" />
       </div>
     </div>
+  </section>
+
+  <!-- Lead Generation Form -->
+  <section class="lead-section" id="lead">
+    <h2>Get Legal Help Now</h2>
+    <form class="lead-form" id="leadForm" enctype="multipart/form-data" autocomplete="off">
+      <div>
+        <label for="lead-name">Full Name</label>
+        <input type="text" id="lead-name" name="name" required autocomplete="name" />
+      </div>
+      <div>
+        <label for="lead-phone">Phone <span style="color:#b71c1c">*</span></label>
+        <input type="tel" id="lead-phone" name="phone" required pattern="^[0-9+() -]{7,}$" autocomplete="tel" />
+      </div>
+      <div>
+        <label for="lead-email">Email (optional)</label>
+        <input type="email" id="lead-email" name="email" autocomplete="email" />
+      </div>
+      <div>
+        <label for="lead-desc">Short Description</label>
+        <textarea id="lead-desc" name="description" placeholder="Describe your legal issue or case type"></textarea>
+      </div>
+      <div>
+        <label for="lead-file">Upload Supporting Documents</label>
+        <input type="file" id="lead-file" name="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif" />
+      </div>
+      <div class="gdpr">
+        <input type="checkbox" id="lead-gdpr" name="gdpr" required />
+        <label for="lead-gdpr" style="font-weight:400;">I consent to my data being stored and processed for the purpose of legal consultation. <a href="#" style="color:var(--primary);text-decoration:underline;">Privacy Policy</a></label>
+      </div>
+      <button type="submit" class="submit-btn">Submit</button>
+      <div class="form-success" id="leadSuccess" style="display:none;">Thank you! We’ve received your request.</div>
+      <div class="form-error" id="leadError" style="display:none;">There was an error. Please try again.</div>
+    </form>
   </section>
 
   <!-- Call to Action (repeated) -->
   <section class="hero" style="padding:2rem 1rem 2rem 1rem; min-height:unset;">
     <h2 style="font-size:2rem; font-weight:700; margin-bottom:0.5em;">Ready for Smarter Legal Help?</h2>
-    <a href="#contact" class="cta-btn">Talk to the AI Agent</a>
+    <a href="#lead" class="cta-btn">Talk to the AI Agent</a>
   </section>
 
   <!-- Contact / Footer -->
   <footer id="contact">
     <div class="footer-links">
-      <a href="mailto:info@lawaid.com">Email</a>
+      <a href="mailto:info@lawid.com">Email</a>
       <a href="#">LinkedIn</a>
       <a href="#">Twitter</a>
     </div>
     <div class="footer-contact">
-      &copy; 2024 LAW AID. All rights reserved.
+      &copy; 2024 LAWID. All rights reserved.
     </div>
     <div style="font-size:0.95em; color:#aaa;">
       This is a demo legal-tech project. Not a substitute for professional legal advice.
     </div>
   </footer>
 
+  <!-- ChatBox Floating Button and Modal -->
+  <button class="chatbox-fab" id="chatboxFab" aria-label="Open Chat">
+    💬
+  </button>
+  <div class="chatbox-modal" id="chatboxModal" style="display:none;">
+    <div class="chatbox-header">
+      LAWID AI Legal Assistant
+      <button class="close-btn" onclick="toggleChatbox()" aria-label="Close Chat">&times;</button>
+    </div>
+    <div class="chatbox-messages" id="chatboxMessages">
+      <div class="chatbox-message bot">
+        <div class="bubble">Hello! I’m LAWID’s AI legal assistant. How can I help you today?<br>
+        <span style="font-size:0.9em;color:#666;">(You can upload a document or describe your situation.)</span>
+        </div>
+      </div>
+    </div>
+    <form class="chatbox-input-area" id="chatboxForm" autocomplete="off">
+      <label for="chatboxFile" class="upload-label" title="Upload file">📎</label>
+      <input type="file" id="chatboxFile" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif" />
+      <input type="text" id="chatboxInput" placeholder="Type your message..." required autocomplete="off" />
+      <button type="submit" id="chatboxSendBtn">Send</button>
+    </form>
+    <div class="chatbox-uploaded-file" id="chatboxUploadedFile" style="display:none;"></div>
+  </div>
+
   <script>
-    // Mobile nav toggle
+    // --- Mobile nav toggle ---
     function toggleMenu() {
       var nav = document.getElementById('main-nav');
       nav.classList.toggle('open');
     }
-    // Close nav on link click (mobile)
     document.querySelectorAll('#main-nav a').forEach(function(link) {
       link.addEventListener('click', function() {
         document.getElementById('main-nav').classList.remove('open');
       });
     });
+
+    // --- Lead Form Submission (demo: just shows success, you can connect to backend/CRM) ---
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Simple validation
+      var phone = document.getElementById('lead-phone').value.trim();
+      var gdpr = document.getElementById('lead-gdpr').checked;
+      if (!phone || !gdpr) {
+        document.getElementById('leadError').style.display = 'block';
+        document.getElementById('leadSuccess').style.display = 'none';
+        return;
+      }
+      // Simulate async submit
+      document.getElementById('leadError').style.display = 'none';
+      setTimeout(function() {
+        document.getElementById('leadSuccess').style.display = 'block';
+        document.getElementById('leadForm').reset();
+        setTimeout(function() {
+          document.getElementById('leadSuccess').style.display = 'none';
+        }, 4000);
+      }, 1000);
+    });
+
+    // --- ChatBox Logic ---
+    const chatboxFab = document.getElementById('chatboxFab');
+    const chatboxModal = document.getElementById('chatboxModal');
+    const chatboxMessages = document.getElementById('chatboxMessages');
+    const chatboxForm = document.getElementById('chatboxForm');
+    const chatboxInput = document.getElementById('chatboxInput');
+    const chatboxFile = document.getElementById('chatboxFile');
+    const chatboxUploadedFile = document.getElementById('chatboxUploadedFile');
+    let uploadedFileData = null;
+
+    function toggleChatbox() {
+      if (chatboxModal.style.display === 'none') {
+        chatboxModal.style.display = 'flex';
+        chatboxInput.focus();
+      } else {
+        chatboxModal.style.display = 'none';
+      }
+    }
+    chatboxFab.addEventListener('click', toggleChatbox);
+
+    // File upload for chat
+    document.querySelector('.upload-label').addEventListener('click', function() {
+      chatboxFile.click();
+    });
+    chatboxFile.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        chatboxUploadedFile.style.display = 'block';
+        chatboxUploadedFile.textContent = 'Attached: ' + file.name;
+        // Read file as base64 for sending to API
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          uploadedFileData = {
+            name: file.name,
+            type: file.type,
+            data: evt.target.result.split(',')[1] // base64
+          };
+        };
+        reader.readAsDataURL(file);
+      } else {
+        chatboxUploadedFile.style.display = 'none';
+        uploadedFileData = null;
+      }
+    });
+
+    // ChatGPT API integration
+    chatboxForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const userMsg = chatboxInput.value.trim();
+      if (!userMsg) return;
+      appendMessage('user', userMsg);
+      chatboxInput.value = '';
+      chatboxUploadedFile.style.display = 'none';
+
+      // Show loading
+      appendMessage('bot', '<span id="typing">LAWID is typing...</span>');
+
+      // Prepare OpenAI API call
+      let messages = [
+        { role: "system", content: "You are LAWID, a helpful, professional AI legal assistant. Greet the user, answer legal questions, and if a document is uploaded, summarize its legal content and generate a case intake summary. If the user describes their situation, generate a legal intake summary for review by a human lawyer. Always be clear, concise, and never give binding legal advice." }
+      ];
+      // Add previous messages (for context, up to 5)
+      const allBubbles = chatboxMessages.querySelectorAll('.chatbox-message');
+      let lastUser = null;
+      for (let i = 0; i < allBubbles.length; i++) {
+        const el = allBubbles[i];
+        if (el.classList.contains('user')) {
+          lastUser = el.querySelector('.bubble').textContent;
+          messages.push({ role: "user", content: lastUser });
+        } else if (el.classList.contains('bot')) {
+          let botMsg = el.querySelector('.bubble').textContent;
+          if (!botMsg.includes('LAWID is typing...')) {
+            messages.push({ role: "assistant", content: botMsg });
+          }
+        }
+      }
+      // Add current user message
+      messages.push({ role: "user", content: userMsg });
+
+      // If file uploaded, add a note to the prompt
+      if (uploadedFileData) {
+        messages.push({
+          role: "user",
+          content: `I have uploaded a file named "${uploadedFileData.name}". Please analyze its legal content and summarize it for intake. (File is base64-encoded, type: ${uploadedFileData.type})`
+        });
+      }
+
+      // Call OpenAI API
+      try {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer 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"
+          },
+          body: JSON.stringify({
+            model: "gpt-4",
+            messages: messages.slice(-6), // last 6 for context
+            max_tokens: 600,
+            temperature: 0.2
+          })
+        });
+        const data = await response.json();
+        // Remove typing...
+        removeTyping();
+        if (data.choices && data.choices[0] && data.choices[0].message) {
+          appendMessage('bot', data.choices[0].message.content);
+        } else {
+          appendMessage('bot', "Sorry, I couldn't process your request. Please try again.");
+        }
+      } catch (err) {
+        removeTyping();
+        appendMessage('bot', "Sorry, there was an error connecting to LAWID's AI. Please try again later.");
+      }
+      uploadedFileData = null;
+      chatboxFile.value = '';
+    });
+
+    function appendMessage(sender, text) {
+      // Remove typing if present
+      removeTyping();
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'chatbox-message ' + sender;
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.innerHTML = text;
+      msgDiv.appendChild(bubble);
+      chatboxMessages.appendChild(msgDiv);
+      chatboxMessages.scrollTop = chatboxMessages.scrollHeight;
+    }
+    function removeTyping() {
+      const typing = document.getElementById('typing');
+      if (typing && typing.parentElement && typing.parentElement.parentElement) {
+        typing.parentElement.parentElement.remove();
+      }
+    }
   </script>
 </body>
 </html>
